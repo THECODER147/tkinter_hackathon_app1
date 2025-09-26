@@ -10,21 +10,21 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # ✅ updated
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v5  # ✅ updated
       with:
         python-version: '3.10'
 
     - name: Install PyInstaller
-      run: pip install pyinstaller --break-system-packages
+      run: pip install pyinstaller
 
     - name: Build executable
       run: pyinstaller --onefile tkinter_test.py
 
     - name: Upload executable
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # ✅ updated
       with:
         name: tkinter_test_exe
         path: dist/tkinter_test.exe
